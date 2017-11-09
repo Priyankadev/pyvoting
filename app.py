@@ -21,9 +21,6 @@ from db import Mdb
 from werkzeug.utils import secure_filename
 from wtforms.fields import SelectField
 
-from eve import Eve
-
-
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                         'templates')
 

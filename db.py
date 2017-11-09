@@ -115,22 +115,6 @@ class Mdb:
             print "save_login_info() :: Got exception: %s", exp
             print(traceback.format_exc())
 
-#############################################
-#                                           #
-#             testing IN DATABASE           #
-#                                           #
-#############################################
-    def testing(self, user):
-        try:
-            rec = {
-                'name': user
-            }
-            self.db.testing.insert(rec)
-
-        except Exception as exp:
-            print "testing() :: Got exception: %s", exp
-            print(traceback.format_exc())
-
 
 if __name__ == "__main__":
     mdb = Mdb()
