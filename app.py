@@ -357,7 +357,7 @@ def save_survey():
 def get_all_survey():
     surveys = mdb.get_all_surveys()
     templateData = {'title': 'Surveys', 'surveys': surveys}
-    return render_template('admin/get_survey.html', **templateData)
+    return render_template('admin/get_surveys.html', **templateData)
 
 
 #############################################
@@ -366,7 +366,7 @@ def get_all_survey():
 @app.route("/user/get_surveys", methods=['GET'])
 def get_surveys():
     surveys = mdb.get_surveys()
-    print'==============', surveys
+    # print'==============', surveys
     templateData = {'title': 'Surveys', 'surveys': surveys}
     return render_template('user/get_survey.html', **templateData)
 

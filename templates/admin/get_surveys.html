@@ -1,0 +1,61 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Work Page{% endblock %}
+{% block head %}
+  {{ super() }}
+
+<style>
+td {font-size: 16px; text-transform: uppercase; letter-spacing: 0px; color: black;}
+th {font-size: 18px; text-transform: uppercase; letter-spacing: 0px; color: black;}
+
+td {text-align: center;}
+th {text-align: center;}
+</style>
+
+{% endblock %}
+{% block content %}
+
+<p class="important">
+
+{% if session['name'] %}
+
+<div id="login" class="span3 well well-large offset4">
+    <center>
+        <h4><p style="color:blue; ">USER SURVEY</p></h4><br>
+
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <b><th width="30%">QUESTION ID</th></b>
+                        <b> <th width="40%">QUESTION</th></b>
+
+                        <b><th width="30%">CREATION TIME</th></b>
+                    </tr>
+                </thead>
+
+                {% for survey in surveys %}
+
+                <tbody>
+                    <tr>
+                        <td>{{ survey._id }}</td>
+                        <td>{{ survey.question }}</td>
+                        <td>{{ survey.creation_date }}</td>
+                    </tr>
+                </tbody>
+
+                {% endfor %}
+            </table>
+    </center>
+</div>
+
+
+{% else %}
+
+        <p style="color: red"> You still didn't set your Email, do it
+        <a href="{{ url_for('admin') }}">here</a></p>
+
+        {% include 'admin/session.html' %}
+
+    {% endif %}
+</p>
+
+{% endblock %}
