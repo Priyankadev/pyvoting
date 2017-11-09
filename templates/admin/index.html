@@ -1,0 +1,33 @@
+{% extends "admin/admin_base.html" %}
+{% block title %}Work Page{% endblock %}
+{% block head %}
+  {{ super() }}
+
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+{% endblock %}
+{% block content %}
+
+<p class="important">
+
+    {% if session['name'] %}Welcome :&emsp;{{session['name']}}
+
+    <div id="login" class="span3 well well-large offset4">
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2><center> <b>Hello {{session['name']}} your welcome!!</b> </center></h2>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+        {% else %}
+
+        <p style="color: red"> You still didn't set your Email, do it
+        <a href="{{ url_for('admin') }}">here</a></p>
+
+        {% include 'admin/session.html' %}
+
+    {% endif %}
+</p>
+
+{% endblock %}

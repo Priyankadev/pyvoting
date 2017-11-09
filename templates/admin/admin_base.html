@@ -1,0 +1,70 @@
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - VOTING SYSTEM</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+
+    {% block head %}{% endblock %}
+  </head>
+
+  <body>
+
+  <!---------------------------- NAVIGATION BAR BEGINS ---------------------------->
+    <nav class="navbar navbar-inverse">
+        <div class="container-fluid">
+            <div class="navbar-header">
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+
+                <a class="navbar-brand" href="/admin">PYVOTING</a>
+            </div>
+
+            <div class="collapse navbar-collapse" id="myNavbar">
+
+                <ul class="nav navbar-nav">
+                    <li><a href="/admin/get_users">SHOW USER</a></li>
+                    <li><a href="/admin/get_survey">VIEW SURVEY</a></li>
+                    <li><a href="/admin/get_responses">VIEW RESPONSE</a></li>
+                    <li><a href="/admin/create_survey">CREATE SURVEY</a></li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    {% if session['name'] %}
+                    <li><a href="{{ url_for('clearsession1') }}"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Logout</a></li>
+                    {% else %}
+                    <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>{% endif %}
+                </ul>
+            </div>
+        </div>
+    </nav>
+  <!----------------------------- NAVIGATION BAR ENDS ----------------------------->
+
+
+                   {% block content %}{% endblock %}
+
+
+  <!----------------------------- FOOTER ----------------------------->
+    <div id="footer">
+        {% block footer %}
+        <center>
+
+        &copy; Copyright 2017 by <a href="#">vote, Inc.</a>.
+
+        </center>
+      {% endblock %}
+    </div>
+
+  </body>
+</html>
+
+

@@ -119,5 +119,46 @@ class Mdb:
             print(traceback.format_exc())
 
 
+#############################################
+#                                           #
+#            ADD ADMIN IN DATABASE          #
+#                                           #
+#############################################
+    def add_admin(self, email, password):
+        try:
+            rec = {
+                'email': email,
+                'password': password
+            }
+            self.db.admin.insert(rec)
+        except Exception as exp:
+            print "add_admin() :: Got exception: %s", exp
+            print(traceback.format_exc())
+
+#############################################
+#                                           #
+#            ADD existing IN DATABASE       #
+#                                           #
+#############################################
+    def admin_exists(self, email, password):
+
+        return self.db.admin.find({'email': email, 'password': password}).\
+                   count() > 0
+
+
+#############################################
+#                                           #
+#                 GET USERS                 #
+#                                           #
+#############################################
+    def get_users(self):
+        collection = self.db["user"]
+        result = collection.find({})
+        ret = []
+        for data in result:
+            ret.append(data)
+        return ret
+
 if __name__ == "__main__":
     mdb = Mdb()
+    mdb.add_admin('tom@gmail.com', '123')

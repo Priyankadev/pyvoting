@@ -255,6 +255,85 @@ def page_not_found(error):
     return render_template('admin/404.html'), 404
 
 
+##############################################################################
+#                                                                            #
+#                                    ADMIN PANNEL                            #
+#                                                                            #
+##############################################################################
+@app.route('/admin')
+def admin():
+    templateData = {'title': 'index page'}
+    return render_template('admin/index.html', **templateData)
+
+
+#############################################
+#                 LOGIN ADMIN               #
+#############################################
+@app.route('/admin/admin_login', methods=['POST'])
+def admin_login():
+    ret = {'err': 0}
+    try:
+
+        sumSessionCounter()
+        email = request.form['email']
+        password = request.form['password']
+
+        if mdb.admin_exists(email, password):
+            name = mdb.get_name(email)
+            session['name'] = name
+
+            expiry = datetime.datetime.utcnow() + datetime.\
+                timedelta(minutes=30)
+            token = jwt.encode({'user': email, 'exp': expiry},
+                               app.config['secretkey'], algorithm='HS256')
+            ret['msg'] = 'Login successful'
+            ret['err'] = 0
+            ret['token'] = token.decode('UTF-8')
+            return render_template('admin/index.html', session=session)
+        else:
+            templateData = {'title': 'singin page'}
+            # Login Failed!
+            return render_template('/admin/index.html', session=session)
+            # return "Login faild"
+            ret['msg'] = 'Login Failed'
+            ret['err'] = 1
+
+    except Exception as exp:
+        ret['msg'] = '%s' % exp
+        ret['err'] = 1
+        print(traceback.format_exc())
+        # return jsonify(ret)
+        return render_template('admin/index.html', session=session)
+
+
+#############################################
+#           ADMIN SESSION LOGOUT            #
+#############################################
+@app.route('/clear1')
+def clearsession1():
+    session.clear()
+    return render_template('/admin/index.html', session=session)
+
+
+#############################################
+#                  GET USER                 #
+#############################################
+@app.route("/admin/get_users", methods=['GET'])
+def get_users():
+    users = mdb.get_users()
+    templateData = {'title': 'Users', 'users': users}
+    return render_template('admin/get_users.html', **templateData)
+
+
+#############################################
+#                  GET USER                 #
+#############################################
+@app.route("/admin/create_survey", methods=['GET'])
+def create_survey():
+    templateData = {'title': 'Create Survey Page'}
+    return render_template('admin/create_survey.html', **templateData)
+
+
 #############################################
 #                                           #
 #                  MAIN SERVER              #
