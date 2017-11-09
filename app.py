@@ -335,6 +335,43 @@ def create_survey():
 
 
 #############################################
+#                CREATE SURVEY              #
+#############################################
+@app.route("/user/save_survey", methods=['POST'])
+def save_survey():
+    try:
+        question = request.form['question']
+        mdb.save_survey(question)
+        print('Added Successfully')
+        return render_template('admin/save_survey.html', session=session)
+
+    except Exception as exp:
+        print('save_survey() :: Got exception: %s' % exp)
+        print(traceback.format_exc())
+
+
+#############################################
+#                GET SURVEY                 #
+#############################################
+@app.route("/admin/get_all_survey", methods=['GET'])
+def get_all_survey():
+    surveys = mdb.get_all_surveys()
+    templateData = {'title': 'Surveys', 'surveys': surveys}
+    return render_template('admin/get_survey.html', **templateData)
+
+
+#############################################
+#                GET SURVEY                 #
+#############################################
+@app.route("/user/get_surveys", methods=['GET'])
+def get_surveys():
+    surveys = mdb.get_surveys()
+    print'==============', surveys
+    templateData = {'title': 'Surveys', 'surveys': surveys}
+    return render_template('user/get_survey.html', **templateData)
+
+
+#############################################
 #                                           #
 #                  MAIN SERVER              #
 #                                           #

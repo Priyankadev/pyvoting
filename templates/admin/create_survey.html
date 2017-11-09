@@ -21,9 +21,12 @@
         <center>
             <h4><p style="color:blue; ">CREATE SURVEY </p></h4><br>
                 <form action="/user/save_survey" method="post">
-                    <input type="hidden" name="rowCount" id="rowCount" value="0">
-                        <b>QUESTION :</b> <input type="text" required="" style=" text-transform: uppercase; text-align: center" name="title" id="title" placeholder="--- Please Enter Question --- " size="40" /><br><br>
 
+                    <b>QUESTION :</b> <input type="text" required="" style=" text-transform: uppercase; text-align: center" name="question"  placeholder="--- Please Enter Question --- " size="40" /><br><br>
+
+                    <!--<input type="radio" name="answer" value="yes" checked> YES-->
+                    <!--<input type="radio" name="answer" value="no"> NO-->
+                    <!--<input type="radio" name="answer" value="other"> OTHER<br><br><br><br>-->
 
                     <button type="submit" class="btn btn-success">SUBMIT</button><hr></p>
 

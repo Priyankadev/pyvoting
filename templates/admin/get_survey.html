@@ -25,11 +25,9 @@ th {text-align: center;}
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <b><th width="10%">TITLE</th></b>
-                        <b> <th width="10%">EMAIL ID</th></b>
-                        <b><th width="12%">USER ID</th></b>
-                        <b><th width="15%">CREATION TIME</th></b>
-                        <b><th  colspan="4" width="53%">Responses</th></b>
+                        <b><th width="30%">SURVEY ID</th></b>
+                        <b><th width="30%">CREATION TIME</th></b>
+                        <b><th width="40%">QUESTION</th></b>
                     </tr>
                 </thead>
 
@@ -37,14 +35,9 @@ th {text-align: center;}
 
                 <tbody>
                     <tr>
-                        <td>{{ survey.title }}</td>
-                        <td>{{ survey.session_id }}</td>
                         <td>{{ survey._id }}</td>
-                        <td>{{ survey.TimeStamp }}</td>
-                        <td>{{ survey.ques_id1 }}</td>
-                        <td>{{ survey.ques_id2 }}</td>
-                        <td>{{ survey.ques_id3 }}</td>
-                        <td>{{ survey.ques_id4 }}</td>
+                        <td>{{ survey.creation_date }}</td>
+                        <td>{{ survey.question }}</td>
                     </tr>
                 </tbody>
 
