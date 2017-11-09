@@ -1,0 +1,71 @@
+#login
+    {
+    background: #a6a6a6;
+    margin-top: 0%;
+    margin-right: 0%;
+    margin-left: 0%;
+    box-shadow: 0 0 18px #ccc;
+    }
+
+
+body
+ {
+    background: #808080;
+    font-family: vardana;
+    color:black;
+    padding: 0px
+ }
+
+h4
+ {
+ font-size: 36px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ text-align: center;
+ color: gray;
+ }
+
+h2
+ {
+ font-size: 48px;
+ text-transform: uppercase;
+ letter-spacing: 2px;
+ text-align: left;
+ color: gray;
+ }
+
+
+input.placeholder
+{
+ text-align: center;
+ text-transform: uppercase;
+ }
+tab3 { padding-left: 65em; }
+
+body {
+
+
+    background:#333;
+}
+
+.form_bg {
+    background-color:#eee;
+    color:#666;
+    padding:20px;
+    border-radius:10px;
+    position: absolute;
+    border:1px solid #fff;
+    margin: auto;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 320px;
+    height: 280px;
+}
+
+.align-center {
+
+    text-align:center;
+}
+

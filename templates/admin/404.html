@@ -1,0 +1,43 @@
+
+<!doctype html>
+<html>
+  <head>
+    <title>{% block title %}{% endblock %} - WEBAPP</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
+
+  </head>
+
+  <body>
+
+
+ <div id="login" class="span3 well well-large offset4">
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+
+        <h2><center> <b>404</b> </center></h2>
+        <h2><center> <b>Page Not Found</b> </center></h2>
+
+        <br><br><br><br><br><br><br><br><br><br><br><br>
+ </div>
+    <!----------------------------- FOOTER ----------------------------->
+    <div id="footer">
+        {% block footer %}
+        <center>
+
+        &copy; Copyright 2017 by <a href="#">Webapp, Inc.</a>.
+
+        </center>
+      {% endblock %}
+    </div>
+
+
+  </body>
+</html>
+
+
