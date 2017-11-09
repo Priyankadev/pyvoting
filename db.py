@@ -8,11 +8,14 @@ from bson import ObjectId
 
 class Mdb:
     def __init__(self):
-        conn_str = "mongodb://admin:123@127.0.0.1:27017/admin"
+        # conn_str = "mongodb://admin:123@127.0.0.1:27017/admin"
+        conn_str = "mongodb://voterixuser:voterixpass@ds251245.mlab.com:51245" \
+                   "/voterix"
+
         # conn_str = 'mongodb://pmuser:pmpass@ds161742.mlab.com:61742/
         # projectmanager'
         client = MongoClient(conn_str)
-        self.db = client['voting']
+        self.db = client['voterix']
 
 #############################################
 #                                           #
