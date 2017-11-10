@@ -249,8 +249,29 @@ class Mdb:
     def save_response(self, response):
         self.db.response.insert(response)
 
-    def questions(self, title):
-        return self.db.survey.find({'title': title}).count() > 0
+    def check_question(self, question, email):
+        return self.db.response.find({'question': question, 'email': email
+                                       }).count() > 0
+
+#############################################
+#                                           #
+#               UPDATE RESPOSE BY USER      #
+#                                           #
+#############################################
+    def update_response(self, response):
+
+        question = response['question']
+        print 'update query:-----', question
+        answer = response['answer']
+        ts = datetime.datetime.today().strftime("%a %b %d %X  %Y ")
+        email = response['email']
+
+        # mongodb update query
+        self.db.response.update(
+            {'question': question, 'email': email},
+            {'$set': {'answer': answer}},
+            upsert=True, multi=True
+        )
 
 
 if __name__ == "__main__":

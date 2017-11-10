@@ -17,6 +17,7 @@ import flask
 import json
 import jwt
 import os
+# from eve import Eve
 from db import Mdb
 from werkzeug.utils import secure_filename
 from wtforms.fields import SelectField
@@ -26,6 +27,7 @@ tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
 
 # app = Flask(__name__, static_path='/static')
 
+# app = Eve('voterix', template_folder = temp_dir)
 app = Flask(__name__)
 bcrypt = Bcrypt(app)
 mdb = Mdb()
@@ -379,25 +381,28 @@ def save_response():
     response = {}
     try:
         question = request.form['question']
-        print'question', question
         answer = request.form['answer']
-        print'answer', answer
         ts = datetime.datetime.today().strftime("%a %b %d %X  %Y ")
         email = session['email']
 
         response['question'] = question
         response['answer'] = answer
         response['TimeStamp'] = ts
-        response['session_id'] = email
+        response['email'] = email
 
+        check = mdb.check_question(question, email)
+        
+        if check:
 
-        mdb.save_response(response)
+            mdb.update_response(response)
+            # return render_template('user/get_survey.html', session=session)
 
-        print('Added Successfully')
+        else:
+            mdb.save_response(response)
         return render_template('user/save_response.html', session=session)
 
     except Exception as exp:
-        print('save_survey() :: Got exception: %s' % exp)
+        print('save_response() :: Got exception: %s' % exp)
         print(traceback.format_exc())
 
 
