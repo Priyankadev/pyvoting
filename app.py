@@ -416,6 +416,12 @@ def get_response():
     return render_template('admin/get_responses.html', session=session, **templateData)
 
 
+@app.route('/user/graph_chart')
+def graph_chart():
+    templateData = {'title': 'Graph page'}
+    return render_template('user/graph_chart.html', **templateData)
+
+
 #############################################
 #                                           #
 #                  MAIN SERVER              #

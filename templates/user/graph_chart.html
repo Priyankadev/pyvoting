@@ -1,0 +1,56 @@
+{% extends "user/user_base.html" %}
+{% block title %}PY Chart{% endblock %}
+{% block head %}
+  {{ super() }}
+
+<script src="{{url_for('static', filename='js/js.js')}}"></script>
+<script type="text/javascript">
+
+window.onload = function () {
+	var chart = new CanvasJS.Chart("chartContainer",
+	{
+		theme: "theme2",
+		title:{
+			text: "Response Of Today Question"
+		},
+		data: [
+		{
+			type: "pie",
+			showInLegend: true,
+			toolTipContent: "{y} - #percent %",
+			yValueFormatString: "#0.#,,. Million",
+			legendText: "{indexLabel}",
+			dataPoints: [
+				{  y: 1630, indexLabel: "YES" },
+				{  y: 600, indexLabel: "NO" },
+				{  y: 140, indexLabel: "OTHER"}
+			]
+		}
+		]
+	});
+	chart.render();
+}
+
+</script>
+
+{% endblock %}
+{% block content %}
+
+<p class="important">
+    {% if session['name'] %}
+    <div id="login" class="span3 well well-large offset4">
+
+<div id="chartContainer" style="height: 400px; width: 100%;"></div>
+
+</div>
+
+    {% else %}
+
+<p style="color: red"> You still didn't set your Email, do it
+    <a href="{{ url_for('signin') }}">here</a></p>
+
+{% include 'user/session.html' %}
+{% endif %}
+</p>
+{% endblock %}
+
