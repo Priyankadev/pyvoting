@@ -8,7 +8,24 @@
 
 <script type="text/javascript">
 
-window.onload = function () {
+console.log("Loging graph....")
+
+function handleChartDataFromServer(data)
+{
+    alert("hellooooo");
+    var items = data._items;
+    alert("" + items.length);
+    var dataPoints = [];
+    for(var i = 0; i< items.length; i++)
+    {
+        var item = items[i];
+        alert("" + item.answer)
+    }
+
+}
+
+window.onload = function ()
+{
 	var chart = new CanvasJS.Chart("chartContainer",
 	{
 		theme: "theme2",
@@ -30,8 +47,21 @@ window.onload = function () {
 		}
 		]
 	});
+
+
+
+
 	chart.render();
 }
+
+
+ $.get("http://0.0.0.0:5000/api/response", function(data, status)
+    {
+        //alert(" " + JSON.stringify(data));
+        handleChartDataFromServer(data);
+    })
+
+
 
 </script>
 
@@ -41,19 +71,7 @@ window.onload = function () {
 <p class="important">
     {% if session['name'] %}
     <div id="login" class="span3 well well-large offset4">
-<script>
-alert("Hello! I am an alert box!!");
-    $.get("https://voterix.herokuapp.com/api/response", function(data, status)
-    alert("Hello! I am an alert box================!!");
-        		alert("hiiiiii");
-        		alert("" +data);
 
-
-		{
-        handleChartDataFromServer(data);
-        });
-
-</script>
 <div id="chartContainer" style="height: 500px; width: 100%;"></div>
 
 </div>

@@ -217,14 +217,14 @@ class Mdb:
         collection = self.db["response"]
         # result = collection.find().skip(self.db.survey.count()-1)
         result = collection.find({})
-        ret = []
-        for data in result:
-            ret.append(data)
-        return ret
+        # ret = []
+        # for data in result:
+        #     ret.append(data)
+        return result
 
 #############################################
 #                                           #
-#            ADD response IN DATABASE           #
+#            ADD response IN DATABASE       #
 #                                           #
 #############################################
     # def save_response(self, email, question, answer):
@@ -272,6 +272,8 @@ class Mdb:
             {'$set': {'answer': answer}},
             upsert=True, multi=True
         )
+
+
 
 
 if __name__ == "__main__":

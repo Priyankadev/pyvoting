@@ -17,17 +17,17 @@ import flask
 import json
 import jwt
 import os
-from eve import Eve
 from db import Mdb
 from werkzeug.utils import secure_filename
 from wtforms.fields import SelectField
+from eve import Eve
 
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                         'templates')
 
-app = Eve('voterix', template_folder=tmpl_dir)
+# app = Eve('voterix', template_folder=tmpl_dir)
 
-# app = Flask(__name__, static_path='/static')
+app = Flask(__name__)
 
 bcrypt = Bcrypt(app)
 mdb = Mdb()
@@ -420,6 +420,23 @@ def get_response():
 def graph_chart():
     templateData = {'title': 'Graph page'}
     return render_template('user/graph_chart.html', **templateData)
+
+
+#################
+#               #
+#   API         #
+#               #
+#################
+@app.route('/api_get_response')
+def api_get_response():
+    result = mdb.get_responses()
+    print '--------', result
+    ret = []
+    for data in result:
+        ret.append(data)
+    print '', ret
+    return JSONEncoder().encode({'data':ret})
+
 
 
 #############################################
