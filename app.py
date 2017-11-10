@@ -17,7 +17,7 @@ import flask
 import json
 import jwt
 import os
-# from eve import Eve
+from eve import Eve
 from db import Mdb
 from werkzeug.utils import secure_filename
 from wtforms.fields import SelectField
@@ -25,10 +25,10 @@ from wtforms.fields import SelectField
 tmpl_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)),
                         'templates')
 
+app = Eve('voterix', template_folder=tmpl_dir)
+
 # app = Flask(__name__, static_path='/static')
 
-# app = Eve('voterix', template_folder = temp_dir)
-app = Flask(__name__)
 bcrypt = Bcrypt(app)
 mdb = Mdb()
 
@@ -391,7 +391,7 @@ def save_response():
         response['email'] = email
 
         check = mdb.check_question(question, email)
-        
+
         if check:
 
             mdb.update_response(response)
