@@ -24,26 +24,21 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        <th width="18.6%">User Id</th>
-                        <th width="18.8%">Survey Id</th>
-                        <th width="10%">Survey</th>
-                        <th width="9%">Time Stamp</th>
-                        <th width="14%">Session Id</th>
-                        <th colspan="32">Responses</a></th>
+                        <th width="25%">USER ID</th>
+                        <th width="15%">SESSION ID</th>
+                        <th width="25%">QUESTION</th>
+                        <th width="10%">ANSWER</th>
+                        <th width="25%">TIME STAMP</th>
                     </tr>
                 </thead>
                     {% for response in responses %}
                 <tbody>
                     <tr>
-                        <td width="17%"><get_responses?id={{ response._id }}">{{ response._id}}</td>
-                        <td width="17%"><get_responses?id={{ response._id }}">{{ response.survey_id}}</td>
-                        <td width="11%"><get_responses?id={{ response._id }}">{{ response.title}}</td>
-                        <td width="11%"><get_responses?id={{ response._id }}">{{ response.timeStamp}}</td>
-                        <td width="12%"><get_responses?id={{ response._id }}">{{ response.Session_email}}</td>
-                        <td width="8%"><get_responses?id={{ response._id }}">{{ response.ques_description1 }}</td>
-                        <td width="8%"><get_responses?id={{ response._id }}">{{ response.ques_description2 }}</td>
-                        <td width="8%"><get_responses?id={{ response._id }}">{{ response.ques_description3 }}</td>
-                        <td width="8%"><get_responses?id={{ response._id }}">{{ response.ques_description4 }}</td>
+                        <td width="25%"><get_responses?id={{ response._id }}">{{ response._id}}</td>
+                        <td width="15%"><get_responses?id={{ response._id }}">{{ response.session_id}}</td>
+                        <td width="25%"><get_responses?id={{ response._id }}">{{ response.question}}</td>
+                        <td width="10%"><get_responses?id={{ response._id }}">{{ response.answer}}</td>
+                        <td width="25%"><get_responses?id={{ response._id }}">{{ response.TimeStamp}}</td>
                     </tr>
                 </tbody>
 

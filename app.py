@@ -322,7 +322,7 @@ def clearsession1():
 def get_users():
     users = mdb.get_users()
     templateData = {'title': 'Users', 'users': users}
-    return render_template('admin/get_users.html', **templateData)
+    return render_template('admin/get_users.html', session=session, **templateData)
 
 
 #############################################
@@ -331,7 +331,7 @@ def get_users():
 @app.route("/admin/create_survey", methods=['GET'])
 def create_survey():
     templateData = {'title': 'Create Survey Page'}
-    return render_template('admin/create_survey.html', **templateData)
+    return render_template('admin/create_survey.html', session=session, **templateData)
 
 
 #############################################
@@ -357,7 +357,7 @@ def save_survey():
 def get_all_survey():
     surveys = mdb.get_all_surveys()
     templateData = {'title': 'Surveys', 'surveys': surveys}
-    return render_template('admin/get_surveys.html', **templateData)
+    return render_template('admin/get_surveys.html', session=session, **templateData)
 
 
 #############################################
@@ -368,7 +368,47 @@ def get_surveys():
     surveys = mdb.get_surveys()
     # print'==============', surveys
     templateData = {'title': 'Surveys', 'surveys': surveys}
-    return render_template('user/get_survey.html', **templateData)
+    return render_template('user/get_survey.html', session=session, **templateData)
+
+
+#############################################
+#               SAVE RESPONSE               #
+#############################################
+@app.route('/user/save_response', methods=['POST'])
+def save_response():
+    response = {}
+    try:
+        question = request.form['question']
+        print'question', question
+        answer = request.form['answer']
+        print'answer', answer
+        ts = datetime.datetime.today().strftime("%a %b %d %X  %Y ")
+        email = session['email']
+
+        response['question'] = question
+        response['answer'] = answer
+        response['TimeStamp'] = ts
+        response['session_id'] = email
+
+
+        mdb.save_response(response)
+
+        print('Added Successfully')
+        return render_template('user/save_response.html', session=session)
+
+    except Exception as exp:
+        print('save_survey() :: Got exception: %s' % exp)
+        print(traceback.format_exc())
+
+
+#############################################
+#                GET SURVEY                 #
+#############################################
+@app.route("/admin/get_response", methods=['GET'])
+def get_response():
+    responses = mdb.get_responses()
+    templateData = {'title': 'Responses', 'responses': responses}
+    return render_template('admin/get_responses.html', session=session, **templateData)
 
 
 #############################################

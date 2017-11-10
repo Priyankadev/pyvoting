@@ -17,7 +17,7 @@
 
 
 
-        <form action="/user/save_survey" method="post">
+        <form action="/user/save_response" method="post">
                                             <td>
                     {% for survey in surveys %}
                         <br>
@@ -26,7 +26,10 @@
                     <!--<b><h3>{{ survey._id }}</a></h3></b><br>-->
 
                     <b><h3>{{ survey.question }}</a></h3></b><br>
-                   <input type="radio" name="answer" value="yes" checked> YES
+                    <!--<input type="hidden" class="form-control"name="email" value="['name']"><br>-->
+                    <input type="hidden" class="form-control"  name="question" value="{{ survey.question }}" ><br>
+
+                                                <input type="radio" name="answer" value="yes" checked> YES
                     <input type="radio" name="answer" value="no"> NO
                     <input type="radio" name="answer" value="other"> OTHER<br><br><br><br><hr>
 

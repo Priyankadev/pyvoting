@@ -208,6 +208,51 @@ class Mdb:
             ret.append(data)
         return ret
 
+#############################################
+#                                           #
+#                 get  survey               #
+#                                           #
+#############################################
+    def get_responses(self):
+        collection = self.db["response"]
+        # result = collection.find().skip(self.db.survey.count()-1)
+        result = collection.find({})
+        ret = []
+        for data in result:
+            ret.append(data)
+        return ret
+
+#############################################
+#                                           #
+#            ADD response IN DATABASE           #
+#                                           #
+#############################################
+    # def save_response(self, email, question, answer):
+    #     try:
+    #         ts = datetime.datetime.today().strftime("%a %b %d %X  %Y ")
+    #         rec = {
+    #             'email': email,
+    #             'question': question,
+    #             'answer': answer,
+    #             'creation_date': ts
+    #         }
+    #         self.db.response.insert(rec)
+    #
+    #     except Exception as exp:
+    #         print "save_survey() :: Got exception: %s", exp
+    #         print(traceback.format_exc())
+#############################################
+#                                           #
+#            ADD SURVEY IN DATABASE         #
+#                                           #
+#############################################
+    def save_response(self, response):
+        self.db.response.insert(response)
+
+    def questions(self, title):
+        return self.db.survey.find({'title': title}).count() > 0
+
+
 if __name__ == "__main__":
     mdb = Mdb()
     mdb.add_admin('tom@gmail.com', '123')
