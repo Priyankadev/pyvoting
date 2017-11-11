@@ -1,16 +1,23 @@
 #login
     {
-    background: #eee;
+    background: #a6a6a6;
     margin-top: 0%;
     margin-right: 0%;
     margin-left: 0%;
     box-shadow: 0 0 18px #ccc;
     }
 
+    td {font-size: 16px; text-transform: uppercase; letter-spacing: 0px; color: black;}
+    th {font-size: 18px; text-transform: uppercase; letter-spacing: 0px; color: black;}
+
+        td {text-align: center;}
+        th {text-align: center;}
 
 body
  {
-    background: #eee;
+    background-image: url("../img/map.png");
+    background-color: #cccccc;
+
     font-family: vardana;
     color:black;
     padding: 0px
@@ -42,14 +49,9 @@ input.placeholder
  }
 tab3 { padding-left: 65em; }
 
-body {
-
-
-    background:#333;
-}
 
 .form_bg {
-    background-color:#ccffff;
+    background-color:#eee;
     color:#666;
     padding:20px;
     border-radius:10px;

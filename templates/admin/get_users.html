@@ -3,14 +3,6 @@
 {% block head %}
   {{ super() }}
 
-<style>
-    td {font-size: 16px; text-transform: uppercase; letter-spacing: 0px; color: black;}
-    th {font-size: 18px; text-transform: uppercase; letter-spacing: 0px; color: black;}
-
-        td {text-align: center;}
-        th {text-align: center;}
-</style>
-
 {% endblock %}
 {% block content %}
 
@@ -20,22 +12,6 @@
         <div id="login" class="span3 well well-large offset4">
             <center>
                 <h4><p style="color:blue;">USERS</p></h4><br>
-
-                    <div class="container">
-                        <!-- Modal -->
-                        <div class="modal fade" id="myModal" role="dialog">
-                            <div class="modal-dialog">
-
-                                <!-- Modal content-->
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        <h4 class="modal-title">Modal Header</h4>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
 
     <table class="table table-bordered">
         <thead>
@@ -61,84 +37,7 @@
         {% endfor %}
 
     </table>
-
-
-
-    {% for user in users %}
-
-    <div class="modal fade" id="exampleModal" value="{{user._id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Details of <b>{{ user.name }} </b></h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times</span>
-                    </button>
-                </div>
-
-                <div class="modal-body">
-                    <form class="form-horizontal" action="/admin/get_users">
-                        <div class="form-group">
-                            <label class="control-label col-sm-2">Name:</label>
-                                <div class="col-sm-10">
-                                    <input type="leble" class="form-control" id="email" value="{{ user.name }}" disabled/>
-                                </div>
-                        </div>
-
-
-                        <div class="form-group">
-                            <label class="control-label col-sm-2">Email:</label>
-      <div class="col-sm-10">
-        <input type="text" class="form-control" value="{{ user.email }}" disabled>
-      </div>
     </div>
-
-
-    <div class="form-group">
-      <label class="control-label col-sm-2">Contact:</label>
-      <div class="col-sm-10">
-        <input type="leble" class="form-control" value="{{ user.contact }}" disabled/>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <label class="control-label col-sm-2">Password:</label>
-      <div class="col-sm-10">
-        <input type="leble" class="form-control"value="{{ user.password }}" disabled/>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <label class="control-label col-sm-2">Time:</label>
-      <div class="col-sm-10">
-        <input type="leble" class="form-control" id="email" value="{{ user.creation_date }}" disabled/>
-      </div>
-    </div>
-
-
-    <div class="form-group">
-      <div class="col-sm-offset-2 col-sm-10">
-        <button type="submit" class="btn btn-default"> Not Verify</button>
-          <button type="submit" class="btn btn-default">Verify</button>
-      </div>
-    </div>
-
-
-  </form>
-</div>
-
-
-    </div>
-  </div>
-
-{% endfor %}
-</center>
-    </div>
-
-
 
 {% else %}
 

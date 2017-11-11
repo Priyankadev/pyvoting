@@ -23,7 +23,16 @@
 
 #myTable th, #myTable td {
   text-align: center;
+
   padding: 1px;
+}
+
+#myTable thead{
+    background-color: #73a2ef;
+}
+
+#myTable tbody{
+    background-color: #73a2ef;
 }
 
 button {
@@ -35,6 +44,6 @@ button {
   border-bottom: 1px solid #ddd;
 }
 
-#myTable tr.header, #myTable tr:hover {
+#myTable tr.header, #myTable {
   background-color: #f1f1f1;
 }
