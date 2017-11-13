@@ -9,7 +9,6 @@
     <p class="important">
         {% if session['name'] %}
 
-    <div id="login" class="span3 well well-large offset4">
         <center>
             <table id="myTable">
                 <h4>SELECT SURVEY TO FILL YOUR RESPONSE</h4>
@@ -17,22 +16,14 @@
 
 
 
-        <form action="/user/save_response" method="post">
-                                            <td>
-                    {% for survey in surveys %}
-                        <br>
-
-                    <!--<b><h3><a href="/user/create_response?id={{ survey._id }}">{{ survey.question }}</a></h3></b><br>-->
-                    <!--<b><h3>{{ survey._id }}</a></h3></b><br>-->
+        <form action="/user/save_response" method="post"> <td>
+                    {% for survey in surveys %}  <br>
 
                     <b><h3>{{ survey.question }}</a></h3></b><br>
-                    <!--<input type="hidden" class="form-control"name="email" value="['name']"><br>-->
                     <input type="hidden" class="form-control"  name="question" value="{{ survey.question }}" ><br>
-
-                                                <input type="radio" name="answer" value="yes" checked> YES
+                    <input type="radio" name="answer" value="yes" checked> YES
                     <input type="radio" name="answer" value="no"> NO
                     <input type="radio" name="answer" value="other"> OTHER<br><br><br><br><hr>
-
                     <button type="submit" class="btn btn-success">SUBMIT</button></p>
                     {% endfor %}
                 </form>
@@ -43,7 +34,7 @@
 
             </table><br><br><br><br>
         </center>
-    </div>
+
 {% else %}
 
 <p style="color: red"> You still didn't set your Email, do it
