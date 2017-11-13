@@ -10,15 +10,14 @@
 
 <p class="important">
 
-    {% if session['name'] %}Welcome :&emsp;{{session['name']}}
+ {% if session['name'] %}Welcome :&emsp;{{session['name']}}
 
-    <div id="login" class="span3 well well-large offset4">
 
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
-        <h2><center> <b>Hello {{session['name']}} your welcome!!</b> </center></h2>
+<h2><center> <b>Hello {{session['name']}} your welcome!!</b> </center></h2>
 
-        <br><br><br><br><br><br><br><br><br><br><br><br>
+<br><br><br><br><br><br><br><br><br><br>
 
         {% else %}
 
@@ -28,7 +27,7 @@
         {% include 'admin/session.html' %}
 
     {% endif %}
-</div>
+
 </p>
 
 {% endblock %}

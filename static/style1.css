@@ -9,7 +9,7 @@
   top: 51px;
   left: 250px;
   width: 250px;
-  background: #262626;
+  background: #333333;
   position: fixed;
   height: 100%;
   overflow-y: auto;
@@ -49,7 +49,7 @@
   color: #999999;
   display: block;
   text-decoration: none;
-  padding-left: 60px;
+  padding-left: 10px;
 }
 
 .sidebar-nav li a span:before {
