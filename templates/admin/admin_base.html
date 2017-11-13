@@ -10,47 +10,93 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/login.css') }}">
 
+    <link href="{{url_for('static', filename='style1.css')}}" rel='stylesheet' type='text/css'>
+
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+
+
     {% block head %}{% endblock %}
   </head>
 
   <body >
 
   <!---------------------------- NAVIGATION BAR BEGINS ---------------------------->
-    <nav class="navbar navbar-inverse">
+
+<div id="wrapper">
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container-fluid">
             <div class="navbar-header">
-
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-
-                <a class="navbar-brand" href="/admin">VOTERIX</a>
+                <div  class="navbar-brand">
+                    <a id="menu-toggle" href="#" class="glyphicon glyphicon-align-justify btn-menu toggle">
+                        <!--<i class="fa fa-bars"></i>-->
+                    </a>
+                    <a href="#">VOTERIX</a>
+                </div>
             </div>
-
-            <div class="collapse navbar-collapse" id="myNavbar">
-
+            <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li><a href="/admin/get_users">SHOW USER</a></li>
                     <li><a href="/admin/get_all_survey">VIEW QUESTION</a></li>
                     <li><a href="/admin/get_response">VIEW RESPONSE</a></li>
                     <li><a href="/admin/create_survey">CREATE QUESTION</a></li>
                 </ul>
-
                 <ul class="nav navbar-nav navbar-right">
                     {% if session['name'] %}
                     <li><a href="{{ url_for('clearsession1') }}"><span class="glyphicon glyphicon-log-out">&nbsp;</span>Logout</a></li>
                     {% else %}
                     <li><a href="/admin"><span class="glyphicon glyphicon-log-in"></span> Signin</a></li>{% endif %}
                 </ul>
-            </div>
+            </div><!--/.nav-collapse -->
         </div>
     </nav>
-  <!----------------------------- NAVIGATION BAR ENDS ----------------------------->
+    <!-- Sidebar -->
+    <div id="sidebar-wrapper">
+        <nav id="spy">
+            <ul class="sidebar-nav nav">
 
+                <li>
+                    <a href="#anch1">
+                        <span class="fa fa-anchor solo">Anchor 1</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#anch2">
+                        <span class="fa fa-anchor solo">Anchor 2</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#anch3">
+                        <span class="fa fa-anchor solo">ABOUT US</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="#anch4">
+                        <span class="fa fa-anchor solo">FEEDBACK</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+
+
+  <!----------------------------- NAVIGATION BAR ENDS ----------------------------->
+<script type="text/javascript" src="{{url_for('static', filename='js/js1.js')}}"></script>
+    <div id="page-content-wrapper">
+        <div class="page-content">
+            <div class="container-fluid">
 
                    {% block content %}{% endblock %}
+            </div>
+        </div>
+    </div>
 
 
   <!----------------------------- FOOTER ----------------------------->
@@ -63,7 +109,7 @@
         </center>
       {% endblock %}
     </div>
-
+</div>
   </body>
 </html>
 
