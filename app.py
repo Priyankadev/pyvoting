@@ -268,6 +268,30 @@ def admin():
     return render_template('admin/index.html', **templateData)
 
 
+@app.route('/admin/links')
+def links():
+    templateData = {'title': 'links page'}
+    return render_template('admin/links.html', **templateData)
+
+
+@app.route('/admin/about_us')
+def about_us():
+    templateData = {'title': 'about_us page'}
+    return render_template('admin/about_us.html', **templateData)
+
+
+@app.route('/admin/contact_us')
+def contact_us():
+    templateData = {'title': 'contact_us page'}
+    return render_template('admin/contact_us.html', **templateData)
+
+
+@app.route('/admin/feedback')
+def feedback():
+    templateData = {'title': 'feedback page'}
+    return render_template('admin/feedback.html', **templateData)
+
+
 #############################################
 #                 LOGIN ADMIN               #
 #############################################
