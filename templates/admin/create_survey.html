@@ -18,22 +18,15 @@
     {% if session['name'] %}
 
         <center>
-            <h4><p style="color:blue; ">CREATE QUESTION </p></h4><br><br><br><br><br><br>
+            <h4><p style="color:blue; ">CREATE QUESTION </p></h4><br><br>
                 <form action="/user/save_survey" method="post">
 
                     <b>QUESTION :</b> <input type="text" required="" style=" text-transform: uppercase; text-align: center" name="question"  placeholder="--- Please Enter Question --- " size="40" /><br><br>
 
-                    <!--<input type="radio" name="answer" value="yes" checked> YES-->
-                    <!--<input type="radio" name="answer" value="no"> NO-->
-                    <!--<input type="radio" name="answer" value="other"> OTHER<br><br><br><br>-->
-
                     <button type="submit" class="btn btn-success">SUBMIT</button><hr></p>
 
-                </form><br><br><br><br><br><br><br><br>
-            <table class="table table-bordered">
+                </form><br><br><br><br>
 
-
-            </table>
         </center>
 
 

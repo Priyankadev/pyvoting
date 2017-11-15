@@ -11,20 +11,35 @@
 
         <center>
             <table id="myTable">
-                <h4>SELECT SURVEY TO FILL YOUR RESPONSE</h4>
+                <h4> YOUR RESPONSE</h4>
                 <hr><br><br>
 
 
 
-        <form action="/user/save_response" method="post"> <td>
-                    {% for survey in surveys %}  <br>
+        <form action="/user/save_response" method="post">
+            <td>
+                {% for survey in surveys %}
 
-                    <b><h3>{{ survey.question }}</a></h3></b><br>
-                    <input type="hidden" class="form-control"  name="question" value="{{ survey.question }}" ><br>
-                    <input type="radio" name="answer" value="yes" checked> YES
-                    <input type="radio" name="answer" value="no"> NO
-                    <input type="radio" name="answer" value="other"> OTHER<br><br><br><br><hr>
-                    <button type="submit" class="btn btn-success">SUBMIT</button></p>
+                <b><h3>{{ survey.question }}</a></h3></b>
+                <input type="hidden" class="form-control"  name="question" value="{{ survey.question }}" >
+
+                <p>
+                    <input name="answer" type="radio" id="test2" value="no"/>
+                    <label for="test2">NO</label>
+                </p>
+
+                <p>
+                    <input name="answer" type="radio" id="test1" value="yes"/>
+                    <label for="test1">YES</label>
+                </p>
+
+                <p>
+                    <input class="with-gap" name="answer" type="radio" id="test3" value="other" />
+                    <label for="test3">OTHER</label>
+                </p>
+
+                    <br><br><br><br><hr>
+                <button type="submit" class="btn btn-success">SUBMIT</button></p>
                     {% endfor %}
                 </form>
 

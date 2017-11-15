@@ -28,7 +28,7 @@
 }
 
 #myTable thead{
-    background-color: #73a2ef;
+    background-color: #ffcccc;
 }
 
 #myTable tbody{
@@ -37,7 +37,7 @@
 
 button {
   text-align: center;
-  width: 20%;
+  width: 40%;
 }
 
 #myTable tr {
