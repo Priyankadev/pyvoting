@@ -1,5 +1,5 @@
 {% extends "user/user_base.html" %}
-{% block title %}Work Page{% endblock %}
+{% block title %}QUESTION{% endblock %}
 {% block head %}
   {{ super() }}
 <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/table_style.css') }}">
@@ -24,17 +24,17 @@
                 <input type="hidden" class="form-control"  name="question" value="{{ survey.question }}" >
 
                 <p>
-                    <input name="answer" type="radio" id="test2" value="no"/>
+                    <input name="answer" type="radio" id="test2" value="no" required=""/>
                     <label for="test2">NO</label>
                 </p>
 
                 <p>
-                    <input name="answer" type="radio" id="test1" value="yes"/>
+                    <input name="answer" type="radio" id="test1" value="yes" required=""/>
                     <label for="test1">YES</label>
                 </p>
 
                 <p>
-                    <input class="with-gap" name="answer" type="radio" id="test3" value="other" />
+                    <input class="with-gap" name="answer" type="radio" id="test3" value="other" required=""/>
                     <label for="test3">OTHER</label>
                 </p>
 

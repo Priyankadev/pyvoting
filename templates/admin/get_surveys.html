@@ -1,15 +1,8 @@
 {% extends "admin/admin_base.html" %}
-{% block title %}Work Page{% endblock %}
+{% block title %}QUESTIONS{% endblock %}
 {% block head %}
   {{ super() }}
 
-<style>
-td {font-size: 16px; text-transform: uppercase; letter-spacing: 0px; color: black;}
-th {font-size: 18px; text-transform: uppercase; letter-spacing: 0px; color: black;}
-
-td {text-align: center;}
-th {text-align: center;}
-</style>
 
 {% endblock %}
 {% block content %}
@@ -19,7 +12,7 @@ th {text-align: center;}
 {% if session['name'] %}
 
     <center>
-        <h4><p style="color:blue; ">USER SURVEY</p></h4><br>
+        <h4><p style="color:blue; ">QUESTIONS</p></h4><br>
 
             <table class="bordered striped">
                 <thead>
